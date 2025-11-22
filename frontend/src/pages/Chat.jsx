@@ -8,6 +8,8 @@ import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/github-dark.css';
 import '../App.css';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+
 const MODELS = [
   { id: 'z-ai/glm-4.5-air:free', name: 'Z.AI: GLM 4.5 Air' },
   { id: 'tngtech/deepseek-r1t2-chimera:free', name: 'DeepSeek R1T2 Chimera' },
@@ -132,7 +134,7 @@ export default function Chat() {
 
     // Regenerate AI response
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -234,7 +236,7 @@ export default function Chat() {
     if (textarea) textarea.style.height = 'auto';
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
