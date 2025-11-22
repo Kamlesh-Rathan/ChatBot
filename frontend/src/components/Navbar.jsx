@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar({ onThemeToggle, isDarkMode }) {
@@ -30,7 +31,15 @@ export default function Navbar({ onThemeToggle, isDarkMode }) {
                             </button>
                         </li>
                     )}
-                    <li><a href="/chat" className="nav-menu">Start Chatting</a></li>
+                    <li>
+                        <Link
+                            to="/chat"
+                            className="nav-menu"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Start Chatting
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>
