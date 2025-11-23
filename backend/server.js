@@ -122,7 +122,13 @@ app.post('/api/chat', async (req, res) => {
           },
           body: JSON.stringify({
             model,
-            messages,
+            messages: [
+              {
+                role: 'system',
+                content: 'You are a helpful AI assistant. Always respond in English with a professional tone.'
+              },
+              ...messages.filter(msg => msg.role !== 'system')
+            ],
             stream: true
           }),
           signal: controller.signal

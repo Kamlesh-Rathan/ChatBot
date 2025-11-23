@@ -1,0 +1,99 @@
+/* Page transition animations - Forward (Landing → Chat) */
+.page-enter {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.98);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Reverse transition animations - Backward (Chat → Landing) */
+.page-reverse-enter {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.98);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-reverse-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-reverse-exit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.page-reverse-exit-active {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Ensure smooth transitions */
+.page-enter-active,
+.page-exit-active,
+.page-reverse-enter-active,
+.page-reverse-exit-active {
+    will-change: opacity, transform;
+    height: 100vh;
+    overflow: hidden;
+}
